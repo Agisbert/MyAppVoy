@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="BACKGROUNDGREY">#BFBFBF</color>
+    <color name="SHADOWGREY">#9C9C9C</color>
+    <color name="google_fuentes">#717171</color>
+    <color name="google_fuentes_second">#8d8d8d</color>
+
+    <color name="google_sombra">#dcdcdc</color>
+    <color name="google_fondo">#eeeeee</color>
+
+    <color name="pastel_red">#F7977A</color>
+    <color name="pastel_yellow">#FFF79A</color>
+    <color name="pastel_green">#A2D39C</color>
+    <color name="pastel_blue">#7EA7D8</color>
+    <color name="pastel_violet">#A187BE</color>
+    <color name="pastel_grey">#A0A0A0</color>
+
+</resources>
+
+

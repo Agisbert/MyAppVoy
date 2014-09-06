@@ -5,6 +5,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.etsy.android.grid.StaggeredGridView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import voy.bert.adaptadores.ListaPpalAdapterStagg;
+
 
 public class Activity_Ppal extends Activity {
 
@@ -12,6 +19,26 @@ public class Activity_Ppal extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity__ppal);
+
+
+        List<String> aux = new ArrayList<String>();
+
+        for (int i = 0; i < 100; i++) {
+            String contacto = "";
+            for (int j = 0; j < i % 4; j++) {
+                contacto += "Contacto \n";
+            }
+            aux.add(contacto + "Contacto" + i);
+        }
+
+        ListaPpalAdapterStagg adapterStagg = new ListaPpalAdapterStagg(this, aux);
+
+        StaggeredGridView staggeredGridView = (StaggeredGridView) findViewById(R.id.grid_view);
+
+        staggeredGridView.setAdapter(adapterStagg);
+
+
+
     }
 
 
