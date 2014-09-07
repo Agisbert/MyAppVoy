@@ -10,10 +10,10 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="voy.bert.receiver.permission.C2D_MESSAGE" />
 
-    <permission android:name="com.example.gcm.permission.C2D_MESSAGE"
+    <permission android:name="voy.bert.receiver.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
-    <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -28,7 +28,16 @@
             </intent-filter>
         </activity>
 
+        <receiver
+            android:name="voy.bert.receiver.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="voy.bert.receiver" />
+            </intent-filter>
+        </receiver>
 
+        <service android:name="voy.bert.receiver.GCMIntentService" />
 
     </application>
 
