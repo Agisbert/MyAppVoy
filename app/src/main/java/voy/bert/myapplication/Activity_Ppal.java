@@ -80,10 +80,8 @@ public class Activity_Ppal extends Activity {
     }
 
     private void logInGCM(){
-
         TareaRegistroGCM tarea = new TareaRegistroGCM(this);
         tarea.execute();
-
     }
 
 

@@ -16,7 +16,7 @@ import voy.bert.util.SharedUtil;
  */
 public class TareaRegistroGCM  extends AsyncTask<String,Integer,String> {
 
-    private final static String SENDER_ID = "crack-fold-696";
+    private final static String SENDER_ID = "434606552167";
     public final static String TAG_LOG_GCM = "GCMLOG";
     private GoogleCloudMessaging gcm;
     private Context context;
@@ -32,9 +32,9 @@ public class TareaRegistroGCM  extends AsyncTask<String,Integer,String> {
             SharedUtil shUtil = new SharedUtil(context);
             ContactUtil cntUtil = new ContactUtil(context);
 
-            if (gcm!=null) {
+           // if (gcm!=null) {
                 gcm = GoogleCloudMessaging.getInstance(context);
-            }
+           // }
 
             //Nos registramos en los servidores de GCM
             String regId = gcm.register(SENDER_ID);
@@ -43,7 +43,7 @@ public class TareaRegistroGCM  extends AsyncTask<String,Integer,String> {
 
             shUtil.guardaDatoSharedString(shUtil.IDCGM, regId);
 
-            cntUtil.registraUsuario(regId);
+            //cntUtil.registraUsuario(regId);
 
         }
         catch (IOException ex)

@@ -13,7 +13,7 @@ public class SharedUtil {
     private Context context;
 
     public SharedUtil (Context context){
-        context = context;
+        this.context = context;
     }
 
     public void guardaDatoSharedString(String clave, String valor){
