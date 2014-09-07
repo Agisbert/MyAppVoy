@@ -1,16 +1,11 @@
 package voy.bert.myapplication;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.etsy.android.grid.StaggeredGridView;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
