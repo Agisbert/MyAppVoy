@@ -1,24 +1,49 @@
 package voy.bert.myapplication;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.etsy.android.grid.StaggeredGridView;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import voy.bert.adaptadores.ListaPpalAdapterStagg;
+import voy.bert.http.TareaRegistroGCM;
+import voy.bert.util.SharedUtil;
 
 
 public class Activity_Ppal extends Activity {
+
+    private String idGCM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity__ppal);
+
+        SharedUtil shUtil = new SharedUtil(this);
+
+        // Obtenemos nuestro id de GCM
+        idGCM = shUtil.dameDatoSharedString(shUtil.IDCGM);
+
+        // Si no lo tenemos, tendremos que registrarnos en GCM
+        if("".equals(idGCM)){
+
+            // Se registra y almacena el id GCM en las shared y la BBDD
+            logInGCM();
+
+        }
+
+
+
 
 
         List<String> aux = new ArrayList<String>();
@@ -36,8 +61,6 @@ public class Activity_Ppal extends Activity {
         StaggeredGridView staggeredGridView = (StaggeredGridView) findViewById(R.id.grid_view);
 
         staggeredGridView.setAdapter(adapterStagg);
-
-
 
     }
 
@@ -60,4 +83,14 @@ public class Activity_Ppal extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void logInGCM(){
+
+        TareaRegistroGCM tarea = new TareaRegistroGCM(this);
+        tarea.execute();
+
+    }
+
+
+
 }
